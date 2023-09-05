@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+from distutils.util import convert_path
+
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
+main_ns = {}
+ver_path = convert_path("form/__init__.py")
+with open(ver_path) as ver_file:
+    exec(ver_file.read(), main_ns)
+
+with open("README.md") as readme_file:
+    long_description = readme_file.read()
+
+setup(
+    name="riso-form",
+    version=main_ns["__version__"],
+    description="Django Form",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    author="Bin Nguyen",
+    author_email="tu.nguyen@risotech.vn",
+    url="https://github.com/RisoTech-Hub/one-form",
+    packages=["form"],
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Environment ::  Web Environment",
+        "Framework :: Django",
+        "Framework :: Django :: 4.2",
+        "Intended Audience :: Developers",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.11",
+        "Topic :: Software Development :: Libraries :: Application Frameworks",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+    ],
+    include_package_data=True,
+    python_requires=">=3.11",
+    install_requires=[
+        "Django==4.2",
+    ],
+)

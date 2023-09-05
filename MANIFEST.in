@@ -1,0 +1,3 @@
+include README.md
+recursive-include form/static *
+recursive-include form/templates *
