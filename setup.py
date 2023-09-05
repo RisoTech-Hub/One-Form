@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 from distutils.util import convert_path
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import find_packages, setup
 
 main_ns = {}
 ver_path = convert_path("form/__init__.py")
@@ -23,7 +20,7 @@ setup(
     author="Bin Nguyen",
     author_email="tu.nguyen@risotech.vn",
     url="https://github.com/RisoTech-Hub/one-form",
-    packages=["form"],
+    packages=find_packages(exclude=["*tests*"]),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment ::  Web Environment",
