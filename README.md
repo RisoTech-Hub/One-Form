@@ -19,6 +19,14 @@ Quick start
         ]
     ```
 
+2. In your project settings.py add the following::
+
+   ``` python
+        DJANGO_PAGINATION_LIMIT = 50
+        "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+        "PAGE_SIZE": env("DJANGO_PAGINATION_LIMIT", default=50),
+    ```
+
 How to contribute
 =================
 

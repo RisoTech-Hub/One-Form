@@ -7,6 +7,7 @@ from .serializers import FormSerializer, SubmissionSerializer
 class FormViewSet(ModelViewSet):
     serializer_class = FormSerializer
     queryset = Form.objects.all()
+    lookup_field = "code"
 
 
 class SubmissionViewSet(ModelViewSet):
